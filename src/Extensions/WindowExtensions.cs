@@ -1,6 +1,5 @@
 using yeomensaga.Scenes;
 using SFML.Graphics;
-using SFML.Window;
 
 namespace yeomensaga.Extensions
 {

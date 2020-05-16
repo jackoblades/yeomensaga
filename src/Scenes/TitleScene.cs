@@ -1,7 +1,6 @@
 using yeomensaga.Extensions;
 using yeomensaga.Services;
 using yeomensaga.Textual;
-using SFML.Audio;
 using SFML.Graphics;
 using SFML.System;
 using SFML.Window;
@@ -72,7 +71,7 @@ namespace yeomensaga.Scenes
 
         public override void Init()
         {
-            Title = new Text("YeomanSaga", Fonts.FontTitle, 100);
+            Title = new Text("YeomenSaga", Fonts.FontTitle, 100);
             Title.Position = new Vector2f(40f, 100f);
 
             Option1 = new Text("New",      Fonts.FontBody, 40);

@@ -6,7 +6,6 @@ using yeomensaga.Services;
 using yeomensaga.Textual;
 using SFML.Audio;
 using SFML.Graphics;
-using SFML.System;
 using SFML.Window;
 using System;
 
@@ -35,7 +34,7 @@ namespace yeomensaga
             MusicService.Init();
 
             var mode = new VideoMode(800, 600);
-            Window = new RenderWindow(mode, "YeomanSaga");
+            Window = new RenderWindow(mode, "YeomenSaga");
             Window.Closed += (x, y) => Close();
             Window.SetVerticalSyncEnabled(Settings.Instance.Vsync);
 

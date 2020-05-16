@@ -1,9 +1,7 @@
 using yeomensaga.Extensions;
 using yeomensaga.Models;
-using yeomensaga.Repository.Charters;
 using yeomensaga.Services;
 using yeomensaga.Textual;
-using SFML.Audio;
 using SFML.Graphics;
 using SFML.System;
 using SFML.Window;
