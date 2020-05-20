@@ -201,6 +201,7 @@ namespace yeomensaga.Scenes
 
             if      (Option1.Contains(e.X, e.Y))
             {
+                Program.Navigate(SceneService.GameScene);
             }
             else if (Option2.Contains(e.X, e.Y))
             {

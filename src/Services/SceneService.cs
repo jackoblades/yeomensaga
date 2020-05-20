@@ -21,6 +21,9 @@ namespace yeomensaga.Services
         public static Scene SettingsScene => _settingsScene ?? (_settingsScene = new SettingsScene(Window));
         private static Scene _settingsScene;
 
+        public static Scene GameScene => _gameScene ?? (_gameScene = new GameScene(Window));
+        private static Scene _gameScene;
+
         #endregion
 
         #region Methods

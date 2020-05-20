@@ -1,5 +1,8 @@
 using SFML.Graphics;
+using SFML.System;
 using SFML.Window;
+using yeomensaga.Extensions;
+using yeomensaga.Services;
 
 namespace yeomensaga.Scenes
 {
@@ -8,6 +11,9 @@ namespace yeomensaga.Scenes
         #region Private Members
 
         #region Entities
+
+        Texture texture;
+        Sprite sprite;
 
         #endregion
 
@@ -26,6 +32,7 @@ namespace yeomensaga.Scenes
         {
             _drawables = new Drawable[]
             {
+                sprite,
             };
         }
 
@@ -35,6 +42,10 @@ namespace yeomensaga.Scenes
 
         public override void Init()
         {
+            texture = new Texture("res/gfx/grass.png");
+            sprite = new Sprite(texture);
+            var bounds = sprite.GetGlobalBounds();
+            sprite.Position = new Vector2f(250f, 250f);
         }
 
         public override Scene Open()
@@ -49,6 +60,15 @@ namespace yeomensaga.Scenes
 
         public override void Progress()
         {
+            var mousePosition = Mouse.GetPosition(_window);
+            if (sprite.IsoContains(mousePosition.X, mousePosition.Y))
+            {
+                sprite.Color = new Color(255, 255, 255, 128);
+            }
+            else
+            {
+                sprite.Color = new Color(255, 255, 255, 255);
+            }
         }
 
         #endregion
@@ -60,7 +80,7 @@ namespace yeomensaga.Scenes
             var window = sender as Window;
             switch (e.Code)
             {
-                case Keyboard.Key.Escape: Program.Close();
+                case Keyboard.Key.Escape: Program.Navigate(SceneService.TitleScene);
                     break;
             }
         }

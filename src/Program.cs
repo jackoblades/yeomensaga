@@ -41,9 +41,6 @@ namespace yeomensaga
             // Services.
             SceneService.Init(Window);
 
-            //var texture = new Texture("res/gfx/title.png");
-            //var sprite = new Sprite(texture);
-
             Fonts.Init();
             Navigate(SceneService.TitleScene);
 
