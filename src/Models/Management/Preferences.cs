@@ -1,6 +1,6 @@
 using System;
 
-namespace yeomensaga.Models
+namespace yeomensaga.Models.Management
 {
     [Flags]
     public enum Preferences

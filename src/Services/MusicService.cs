@@ -1,4 +1,4 @@
-using yeomensaga.Models;
+using yeomensaga.Models.Management;
 using SFML.Audio;
 
 namespace yeomensaga.Services

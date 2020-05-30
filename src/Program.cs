@@ -1,5 +1,5 @@
 ﻿using yeomensaga.Extensions;
-using yeomensaga.Models;
+using yeomensaga.Models.Management;
 using yeomensaga.Repository;
 using yeomensaga.Scenes;
 using yeomensaga.Services;

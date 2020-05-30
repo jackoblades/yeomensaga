@@ -1,4 +1,4 @@
-using yeomensaga.Models;
+using yeomensaga.Models.Management;
 using yeomensaga.Extensions;
 using Microsoft.Data.Sqlite;
 using System.Collections.Generic;

@@ -3,7 +3,7 @@ using yeomensaga.Repository.Charters;
 using System;
 using System.Threading.Tasks;
 
-namespace yeomensaga.Models
+namespace yeomensaga.Models.Management
 {
     public class Settings
     {

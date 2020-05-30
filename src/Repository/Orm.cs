@@ -1,5 +1,5 @@
 using yeomensaga.Extensions;
-using yeomensaga.Models;
+using yeomensaga.Models.Management;
 using Microsoft.Data.Sqlite;
 using System;
 using System.IO;
