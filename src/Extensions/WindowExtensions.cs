@@ -1,5 +1,5 @@
-using yeomensaga.Scenes;
 using SFML.Graphics;
+using yeomensaga.Scenes;
 
 namespace yeomensaga.Extensions
 {
@@ -7,7 +7,12 @@ namespace yeomensaga.Extensions
     {
         public static void Draw(this RenderWindow window, Scene scene)
         {
-            foreach (Drawable entity in scene.Drawables)
+            window.Draw(scene.Drawables);
+        }
+
+        public static void Draw(this RenderWindow window, Drawable[] drawables)
+        {
+            foreach (Drawable entity in drawables)
             {
                 window.Draw(entity);
             }
