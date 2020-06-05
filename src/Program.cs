@@ -21,7 +21,7 @@ namespace yeomensaga
 
         public static Scene CurrentScene { get; set; }
 
-        private static RenderWindow Window;
+        public static RenderWindow Window;
 
         private static object _lock = new object();
 

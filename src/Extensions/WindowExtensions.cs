@@ -17,5 +17,10 @@ namespace yeomensaga.Extensions
                 window.Draw(entity);
             }
         }
+
+        public static void SetView(this RenderWindow window)
+        {
+            window.SetView(window.DefaultView);
+        }
     }
 }

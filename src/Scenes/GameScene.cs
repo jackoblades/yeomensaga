@@ -2,6 +2,7 @@ using SFML.Graphics;
 using SFML.System;
 using SFML.Window;
 using yeomensaga.Extensions;
+using yeomensaga.Models.Logical;
 using yeomensaga.Services;
 
 namespace yeomensaga.Scenes
@@ -12,8 +13,9 @@ namespace yeomensaga.Scenes
 
         #region Entities
 
-        Texture texture;
-        Sprite sprite;
+        Game Game;
+
+        View GameView;
 
         #endregion
 
@@ -32,7 +34,7 @@ namespace yeomensaga.Scenes
         {
             _drawables = new Drawable[]
             {
-                sprite,
+                Game,
             };
         }
 
@@ -42,33 +44,40 @@ namespace yeomensaga.Scenes
 
         public override void Init()
         {
-            texture = new Texture("res/gfx/grass.png");
-            sprite = new Sprite(texture);
-            var bounds = sprite.GetGlobalBounds();
-            sprite.Position = new Vector2f(250f, 250f);
+            Game = new Game();
+            Game.Map = new Map(100,100);
+            Game.Map.Fill(new Texture("res/gfx/grass.png"));
+
+            GameView = new View(Game.Map.CenterPosition, new Vector2f(Program.Window.Size.X, Program.Window.Size.Y));
+            //GameView.Viewport = new FloatRect(0f, 0f, GameView.Size.X-200, GameView.Size.Y);
         }
 
         public override Scene Open()
         {
-            return base.Open();
+            base.Open();
+
+            Program.Window.SetView(GameView);
+
+            return this;
         }
 
         public override void Close()
         {
             base.Close();
+
+            Program.Window.SetView();
         }
 
         public override void Progress()
         {
             var mousePosition = Mouse.GetPosition(_window);
-            if (sprite.IsoContains(mousePosition.X, mousePosition.Y))
-            {
-                sprite.Color = new Color(255, 255, 255, 128);
-            }
-            else
-            {
-                sprite.Color = new Color(255, 255, 255, 255);
-            }
+            int x = (mousePosition.X <= 5) ? -20
+                  : (mousePosition.X >= GameView.Size.X - 5) ? 20 : 0;
+            int y = (mousePosition.Y <= 5) ? -20
+                  : (mousePosition.Y >= GameView.Size.Y - 5) ? 20 : 0;
+            GameView.Move(new Vector2f(x, y));
+
+            Program.Window.SetView(GameView);
         }
 
         #endregion
