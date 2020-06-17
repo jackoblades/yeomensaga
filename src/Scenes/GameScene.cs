@@ -45,7 +45,7 @@ namespace yeomensaga.Scenes
         public override void Init()
         {
             Game = new Game();
-            Game.Map = new Map(100,100);
+            Game.Map = new Map(20,20);
             Game.Map.Fill(new Texture("res/gfx/grass.png"));
 
             GameView = new View(Game.Map.CenterPosition, new Vector2f(Program.Window.Size.X, Program.Window.Size.Y));
@@ -75,7 +75,7 @@ namespace yeomensaga.Scenes
                   : (mousePosition.X >= GameView.Size.X - 5) ? 20 : 0;
             int y = (mousePosition.Y <= 5) ? -20
                   : (mousePosition.Y >= GameView.Size.Y - 5) ? 20 : 0;
-            GameView.Move(new Vector2f(x, y));
+            GameView.MoveWithBounds(x, y, Game.Map);
 
             Program.Window.SetView(GameView);
         }

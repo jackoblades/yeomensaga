@@ -17,6 +17,11 @@ namespace yeomensaga.Models.Logical
         public DimetricSprite[,] BuildingLayer { get; set; }
 
         public Vector2f CenterPosition => TerrainLayer[Width/2, Height/2].Position;
+        public Vector2f TopCorner => TerrainLayer[0, 0].Position;
+        public Vector2f LeftCorner => TerrainLayer[0, Height-1].Position;
+        public Vector2f RightCorner => TerrainLayer[Width-1, 0].Position;
+
+        public Vector2f BottomCorner => TerrainLayer[Width-1, Height-1].Position;
 
         #endregion
 
